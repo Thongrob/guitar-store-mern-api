@@ -9,12 +9,20 @@ const storeSchema=mongoose.Schema({
   },
   model:{
     type:String,
-    required:true,
+    required:true
     // unique:true
   },
   price:{
     type:Number,
     required:true
+  },
+  image:{
+    type:String,
+    required:false
+  },
+  description:{
+    type:String,
+    required:false
   },
   slug:{
     type:String,

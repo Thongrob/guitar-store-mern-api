@@ -5,12 +5,12 @@ const { v4: uuidv4 } = require('uuid')
 
 //บันทึกข้อมูล
 exports.create=(req,res)=>{
-  const {brand, model, price} = req.body
+  const {brand, model, price, image, description} = req.body
   const sumSlug = brand + model
   let slug = slugify(sumSlug)
   
   //ถ้า slug เป็นภาษาไทย ให้ generate id  ออกมา
-  if(!slug)slug=uuidv4()
+  if(!slug)slug = uuidv4()
  
   //Validate
  switch(true){
@@ -22,7 +22,7 @@ exports.create=(req,res)=>{
      break
  }
  //บันทึกข้อมูล
- Stores.create({brand, model, price, slug},(err,store)=>{
+ Stores.create({brand, model, price, image,description , slug},(err,store)=>{
   if(err){
     res.status(400).json({error:"รุ่นซ้ำกัน"})
   }
@@ -70,8 +70,8 @@ exports.remove=(req,res)=>{
 exports.update=(req,res)=>{
   const {slug} = req.params
   //ส่งข้อมูล brand, model, price
-  const {brand, model, price} = req.body
-  Stores.findOneAndUpdate({slug},{brand,model,price},{new:true}).exec((err,store)=>{
+  const {brand, model, price, image, description} = req.body
+  Stores.findOneAndUpdate({slug},{brand,model,price, image, description},{new:true}).exec((err,store)=>{
     if(err) console.log(err)
     res.json(store)
   })
