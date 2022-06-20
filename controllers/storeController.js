@@ -50,7 +50,7 @@ exports.readAll=(req,res)=>{
 //ดึงข้อมูลสินค้าทีละตัว
 exports.singleStore=(req,res)=>{
   const {slug} = req.params
-  Stores.findOne({slug}).exec((err,store)=>{
+  Stores.find({slug}).exec((err,store)=>{
     res.json(store)
   })
 }
