@@ -41,7 +41,7 @@ exports.readAll=(req,res)=>{
 //  data:req.body
 // })
 
-  //ทดสอบข้อการส่งข้อมูล
+  //ทดสอบการส่งข้อมูล
   // res.json({
   //   data:"Hello"
   // })

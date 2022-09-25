@@ -22,10 +22,10 @@ exports.login = (req,res)=>{
     )
   }
 
-  // //ทดสอบให้ response useername, password
+  // //ทดสอบให้ response username, password
   // res.json({
   //   data:"login test"
- 
+  // })
   //ทดสอบให้ response useername, password
   // res.json({
   //   username, password
